@@ -6,6 +6,7 @@
   "scripts": {
     "start": "docker run -e MONGO_URI -p 8080:8080 patarapolw/jpapi",
     "build": "docker build -t patarapolw/jpapi .",
+    "gcr": "docker tag patarapolw/jpapi gcr.io/$PROJECT_ID/jpapi && docker push gcr.io/$PROJECT_ID/jpapi",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
