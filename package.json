@@ -1,25 +1,34 @@
 {
-  "name": "jpdiary",
+  "name": "jpapi",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "docker run -e MONGO_URI -p 8080:8080 jpdiary",
-    "build": "docker build -t jpdiary .",
+    "start": "docker run -e MONGO_URI -p 8080:8080 jpapi",
+    "build": "docker build -t jpapi .",
     "deploy": "heroku container:push web",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/patarapolw/jpdiary.git"
+    "url": "git+https://github.com/patarapolw/jpapi.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "japanese",
+    "openapi",
+    "swagger",
+    "mecab"
+  ],
+  "author": {
+    "email": "polv@polv.cc",
+    "name": "Pacharapol Withayasakpunt",
+    "url": "https://polv.cc"
+  },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/patarapolw/jpdiary/issues"
+    "url": "https://github.com/patarapolw/jpapi/issues"
   },
-  "homepage": "https://github.com/patarapolw/jpdiary#readme",
+  "homepage": "https://github.com/patarapolw/jpapi#readme",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.30.0",
     "@typescript-eslint/parser": "^2.30.0",
@@ -31,5 +40,10 @@
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.2.2",
     "typescript": "^3.8.3"
+  },
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x",
+    "yarn": "please-use-npm"
   }
 }

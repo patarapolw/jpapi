@@ -1,4 +1,4 @@
-FROM node:10-alpine
+FROM node:12-alpine
 RUN mkdir -p /lib
 WORKDIR /lib
 RUN apk add alpine-sdk
@@ -25,7 +25,7 @@ RUN apk add python
 RUN npm i
 COPY packages/server .
 RUN npm run build
-RUN npm prune
+RUN npm prune --production
 RUN apk del alpine-sdk python
 
 EXPOSE 8080
