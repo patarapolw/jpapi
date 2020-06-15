@@ -14,7 +14,7 @@ I made this a Docker. You can always pull from Docker Hub and host it yourself.
 docker pull patarapolw/jpapi
 ```
 
-The dumped database can be found [here].
+The dumped database can be found [here](https://github.com/patarapolw/jpapi/releases/download/v0.1/mongodump.zip).
 
 ## Chinese API
 
