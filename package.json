@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "docker run -e MONGO_URI -p 8080:8080 jpapi",
-    "build": "docker build -t jpapi .",
-    "deploy": "heroku container:push web",
+    "start": "docker run -e MONGO_URI -p 8080:8080 patarapolw/jpapi",
+    "build": "docker build -t patarapolw/jpapi .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

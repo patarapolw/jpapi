@@ -1,5 +1,7 @@
-node_modules
-**/node_modules
-packages/server/public
-packages/**/dist
-.env
+**
+
+!/packages/server/lib
+!/packages/server/src
+!/packages/server/package.json
+!/packages/server/package-lock.json
+!/packages/server/tsconfig.json

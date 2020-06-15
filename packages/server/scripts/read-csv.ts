@@ -5,7 +5,7 @@ import mongoose from 'mongoose'
 
 import 'log-buffer'
 
-import { DbTranslationModel, DbSentenceTagModel, DbSentenceModel } from '../src/db/mongo'
+import { DbTranslationModel, DbSentenceModel } from '../src/db/mongo'
 
 export async function uploadSentence (): Promise<number[]> {
   return new Promise((resolve, reject) => {
@@ -81,14 +81,20 @@ export async function uploadTag (ids: number[]) {
         if (idSet.has(data.sentenceId)) {
           sentences.push(data)
         }
-
-        if (sentences.length > 1000) {
-          const ss = sentences.splice(0, 1000)
-          DbSentenceTagModel.insertMany(ss)
-        }
       })
       .on('end', async () => {
-        await DbSentenceTagModel.insertMany(sentences)
+        await DbSentenceModel.bulkWrite(Object.entries(sentences.reduce((prev, { sentenceId, tagName }) => {
+          prev.set(sentenceId, Array.from(new Set([tagName, ...(prev.get(sentenceId) || [])])))
+          return prev
+        }, new Map())).map(([sentenceId, tag]) => ({
+          updateOne: {
+            filter: { _id: sentenceId },
+            update: {
+              $set: { tag }
+            }
+          }
+        })))
+
         resolve()
       })
       .on('error', reject)

@@ -17,14 +17,6 @@ class DbTranslation {
 
 export const DbTranslationModel = getModelForClass(DbTranslation, { schemaOptions: { collection: 'translation' } })
 
-@index({ sentenceId: 1, tagName: 1 }, { unique: true })
-class DbSentenceTag {
-  @prop() sentenceId!: number
-  @prop() tagName!: string
-}
-
-export const DbSentenceTagModel = getModelForClass(DbSentenceTag, { schemaOptions: { collection: 'sentenceTag' } })
-
 class DbVocab {
   @prop() kanji!: string[]
   @prop() readings!: string[]

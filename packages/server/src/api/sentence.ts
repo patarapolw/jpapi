@@ -72,18 +72,10 @@ export default (f: FastifyInstance, _: any, next: () => void) => {
     const rData = await DbSentenceModel.aggregate([
       ...conds,
       {
-        $lookup: {
-          from: 'sentenceTag',
-          localField: '_id',
-          foreignField: 'sentenceId',
-          as: 't'
-        }
-      },
-      {
         $project: {
           jpn: '$text',
           eng: '$s.text',
-          tag: '$t.tagName'
+          tag: 1
         }
       }
     ])
@@ -178,18 +170,10 @@ export default (f: FastifyInstance, _: any, next: () => void) => {
         { $skip: offset },
         { $limit: limit },
         {
-          $lookup: {
-            from: 'sentenceTag',
-            localField: '_id',
-            foreignField: 'sentenceId',
-            as: 't'
-          }
-        },
-        {
           $project: {
             jpn: '$text',
             eng: '$s.text',
-            tag: '$t.tagName'
+            tag: 1
           }
         }
       ]),
@@ -280,18 +264,10 @@ export default (f: FastifyInstance, _: any, next: () => void) => {
         }
       },
       {
-        $lookup: {
-          from: 'sentenceTag',
-          localField: '_id',
-          foreignField: 'sentenceId',
-          as: 't'
-        }
-      },
-      {
         $project: {
           jpn: '$text',
           eng: '$s.text',
-          tag: '$t.tagName'
+          tag: 1
         }
       }
     ]))
