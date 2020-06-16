@@ -1,6 +1,7 @@
 import { FastifyInstance } from 'fastify'
 import swagger from 'fastify-oas'
 import cors from 'fastify-cors'
+import rateLimit from 'fastify-rate-limit'
 
 import libRouter from './lib'
 import sentenceRouter from './sentence'
@@ -32,6 +33,10 @@ export default (f: FastifyInstance, _: any, next: () => void) => {
   })
 
   f.register(cors)
+  f.register(rateLimit, {
+    max: 60,
+    timeWindow: '1 minute'
+  })
 
   f.register(libRouter, { prefix: '/lib' })
   f.register(sentenceRouter, { prefix: '/sentence' })
