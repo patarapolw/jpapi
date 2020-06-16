@@ -20,7 +20,7 @@ export default (f: FastifyInstance, _: any, next: () => void) => {
       produces: ['application/json'],
       servers: [
         {
-          url: 'https://jpdiary.herokuapp.com',
+          url: 'https://jpapi.polv.cc',
           description: 'Online server'
         },
         {
