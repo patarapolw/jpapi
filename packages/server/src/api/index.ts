@@ -34,7 +34,7 @@ export default (f: FastifyInstance, _: any, next: () => void) => {
 
   f.register(cors)
   f.register(rateLimit, {
-    max: 60,
+    max: 100,
     timeWindow: '1 minute'
   })
 

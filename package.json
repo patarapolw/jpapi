@@ -5,9 +5,8 @@
   "scripts": {
     "start": "docker run -e MONGO_URI -p 8080:8080 patarapolw/jpapi",
     "build": "docker build -t patarapolw/jpapi .",
-    "push": "docker push patarapolw/jpapi",
-    "heroku:push": "heroku container:push web",
-    "heroku:release": "heroku container:release web",
+    "docker:release": "docker push patarapolw/jpapi",
+    "heroku:release": "heroku container:push web && heroku container:release web",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
