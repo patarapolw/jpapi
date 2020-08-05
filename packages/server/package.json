@@ -23,7 +23,7 @@
   "license": "ISC",
   "dependencies": {
     "@typegoose/typegoose": "^7.0.0",
-    "fastify": "^2.14.0",
+    "fastify": "^2.15.1",
     "fastify-cors": "^3.0.3",
     "fastify-oas": "^2.6.2",
     "fastify-rate-limit": "^3.0.1",
